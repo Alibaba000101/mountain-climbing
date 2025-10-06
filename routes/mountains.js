@@ -1,68 +1,35 @@
 const express = require('express');
 const router = express.Router();
-
 const mountainsData = require('../data/mountains');
 
 router.get('/', (req, res) => {
-    try {
-        const mountains = mountainsData && mountainsData.mountains ? mountainsData.mountains : [];
+    const mountains = mountainsData?.mountains || [];
+    const description = mountainsData?.description || 'Explore the world\'s most famous mountains.';
 
-        res.render('mountains', {
-            title: 'Famous Mountains of the World',
-            page: 'mountains',
-            mountains: mountains,
-            description: mountainsData && mountainsData.description ? mountainsData.description : 'Explore the world\'s most famous mountains.'
-        });
-    } catch (error) {
-        console.error('Error loading mountains page:', error);
-        res.status(500).send('Error loading mountains data');
-    }
+    res.render('mountains', {
+        title: 'Famous Mountains of the World',
+        page: 'mountains',
+        mountains: mountains,
+        description: description
+    });
 });
 
-router.get('/everest', (req, res) => {
-    try {
-        const mountains = mountainsData && mountainsData.mountains ? mountainsData.mountains : [];
-        const everest = mountains.find(mountain => mountain.slug === 'everest');
+router.get('/:slug', (req, res) => {
+    const mountains = mountainsData?.mountains || [];
+    const mountain = mountains.find(m => m.slug === req.params.slug);
 
-        if (!everest) {
-            return res.status(404).render('404', {
-                title: 'Mountain Not Found',
-                page: '404'
-            });
-        }
-
-        res.render('mountain-detail', {
-            title: `${everest.name} - Mountain Details`,
-            page: 'mountains',
-            mountain: everest
+    if (!mountain) {
+        return res.status(404).render('404', {
+            title: 'Mountain Not Found',
+            page: '404'
         });
-    } catch (error) {
-        console.error('Error loading Everest page:', error);
-        res.status(500).send('Error loading mountain data');
     }
-});
 
-router.get('/k2', (req, res) => {
-    try {
-        const mountains = mountainsData && mountainsData.mountains ? mountainsData.mountains : [];
-        const k2 = mountains.find(mountain => mountain.slug === 'k2');
-
-        if (!k2) {
-            return res.status(404).render('404', {
-                title: 'Mountain Not Found',
-                page: '404'
-            });
-        }
-
-        res.render('mountain-detail', {
-            title: `${k2.name} - Mountain Details`,
-            page: 'mountains',
-            mountain: k2
-        });
-    } catch (error) {
-        console.error('Error loading K2 page:', error);
-        res.status(500).send('Error loading mountain data');
-    }
+    res.render('mountain-detail', {
+        title: `${mountain.name} - Mountain Details`,
+        page: 'mountains',
+        mountain: mountain
+    });
 });
 
 module.exports = router;

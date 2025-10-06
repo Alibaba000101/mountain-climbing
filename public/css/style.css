@@ -263,7 +263,9 @@ a:hover {
     gap: 3rem;
     align-items: center;
     padding: 4rem 0;
-    background: linear-gradient(135deg, var(--bg-secondary) 0%, #f1f5f9 100%);
+    background-image: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%), url('/images/mountain-hero.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .hero-content {
