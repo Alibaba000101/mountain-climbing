@@ -1,0 +1,122 @@
+<%- include('partials/header') %>
+
+<% if (mountain) { %>
+    <section class="mountain-hero">
+        <div class="mountain-hero-image" style="background-image: url('<%= mountain.image %>');">
+            <div class="mountain-hero-overlay">
+                <div class="container">
+                    <div class="mountain-hero-content">
+                        <h1 class="mountain-hero-title"><%= mountain.name %></h1>
+                        <p class="mountain-hero-subtitle"><%= mountain.height %> • <%= mountain.location %></p>
+                        <div class="mountain-hero-badge">
+                            <span class="difficulty-badge difficulty-<%= mountain.difficulty.toLowerCase().replace(' ', '-') %>">
+                                <%= mountain.difficulty %>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mountain-details">
+        <div class="container">
+            <div class="mountain-content">
+                <div class="mountain-main">
+                    <div class="mountain-overview">
+                        <h2>Overview</h2>
+                        <p class="mountain-description"><%= mountain.description %></p>
+                    </div>
+
+                    <div class="mountain-facts">
+                        <h2>Quick Facts</h2>
+                        <% if (mountain.facts && mountain.facts.length > 0) { %>
+                            <ul class="facts-list">
+                                <% mountain.facts.forEach(function(fact) { %>
+                                    <li class="fact-item">
+                                        <span class="fact-icon">✓</span>
+                                        <span class="fact-text"><%= fact %></span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        <% } %>
+                    </div>
+
+                    <% if (mountain.dangers && mountain.dangers.length > 0) { %>
+                        <div class="mountain-dangers">
+                            <h2>⚠️ Climbing Hazards</h2>
+                            <ul class="dangers-list">
+                                <% mountain.dangers.forEach(function(danger) { %>
+                                    <li class="danger-item">
+                                        <span class="danger-icon">⚠️</span>
+                                        <span class="danger-text"><%= danger %></span>
+                                    </li>
+                                <% }); %>
+                            </ul>
+                        </div>
+                    <% } %>
+                </div>
+
+                <aside class="mountain-sidebar">
+                    <div class="mountain-stats-card">
+                        <h3>Mountain Stats</h3>
+                        <div class="stats-list">
+                            <div class="stat-row">
+                                <span class="stat-label">Height</span>
+                                <span class="stat-value"><%= mountain.height %></span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Location</span>
+                                <span class="stat-value"><%= mountain.location %></span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Difficulty</span>
+                                <span class="stat-value">
+                                    <span class="difficulty-badge difficulty-<%= mountain.difficulty.toLowerCase().replace(' ', '-') %>">
+                                        <%= mountain.difficulty %>
+                                    </span>
+                                </span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">First Ascent</span>
+                                <span class="stat-value"><%= mountain.firstAscent %></span>
+                            </div>
+                            <div class="stat-row">
+                                <span class="stat-label">Climbers</span>
+                                <span class="stat-value"><%= mountain.climbers %></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="related-links">
+                        <h3>Climbing Resources</h3>
+                        <div class="resource-links">
+                            <a href="/climbing/techniques" class="resource-link">
+                                <span class="resource-icon">🧗</span>
+                                <span class="resource-text">Climbing Techniques</span>
+                            </a>
+                            <a href="/climbing/equipment" class="resource-link">
+                                <span class="resource-icon">🎒</span>
+                                <span class="resource-text">Essential Equipment</span>
+                            </a>
+                            <a href="/mountains" class="resource-link">
+                                <span class="resource-icon">🏔️</span>
+                                <span class="resource-text">All Mountains</span>
+                            </a>
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+<% } else { %>
+    <section class="error-content">
+        <div class="container">
+            <h1>Mountain Not Found</h1>
+            <p>The mountain you're looking for doesn't exist or has been moved.</p>
+            <a href="/mountains" class="btn btn-primary">View All Mountains</a>
+        </div>
+    </section>
+<% } %>
+
+<%- include('partials/footer') %>

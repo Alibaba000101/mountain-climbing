@@ -1,0 +1,145 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title"><%= pageInfo.title || title %></h1>
+        <p class="page-description"><%= pageInfo.intro || description %></p>
+        <% if (pageInfo.safety) { %>
+            <div class="page-safety-note">
+                <span class="safety-icon">⚠️</span>
+                <span class="safety-text"><%= pageInfo.safety %></span>
+            </div>
+        <% } %>
+    </div>
+</section>
+
+<section class="climbing-detail-content">
+    <div class="container">
+        <% if (detailType === 'techniques' && items && items.length > 0) { %>
+            <div class="techniques-list">
+                <% items.forEach(function(technique) { %>
+                    <article class="technique-detail">
+                        <div class="technique-header">
+                            <h2 class="technique-name"><%= technique.name %></h2>
+                            <span class="difficulty-badge difficulty-<%= technique.difficulty.toLowerCase() %>">
+                                <%= technique.difficulty %>
+                            </span>
+                        </div>
+
+                        <div class="technique-content">
+                            <div class="technique-main">
+                                <p class="technique-description"><%= technique.description %></p>
+
+                                <% if (technique.steps && technique.steps.length > 0) { %>
+                                    <div class="technique-steps">
+                                        <h3>Key Steps</h3>
+                                        <ol class="steps-list">
+                                            <% technique.steps.forEach(function(step) { %>
+                                                <li class="step-item"><%= step %></li>
+                                            <% }); %>
+                                        </ol>
+                                    </div>
+                                <% } %>
+                            </div>
+
+                            <% if (technique.safetyTips && technique.safetyTips.length > 0) { %>
+                                <div class="technique-safety">
+                                    <h3>⚠️ Safety Tips</h3>
+                                    <ul class="safety-tips-list">
+                                        <% technique.safetyTips.forEach(function(tip) { %>
+                                            <li class="safety-tip">
+                                                <span class="safety-icon">⚠️</span>
+                                                <span class="safety-text"><%= tip %></span>
+                                            </li>
+                                        <% }); %>
+                                    </ul>
+                                </div>
+                            <% } %>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+
+        <% } else if (detailType === 'equipment' && items && items.length > 0) { %>
+            <div class="equipment-categories">
+                <% items.forEach(function(category) { %>
+                    <article class="equipment-category">
+                        <div class="category-header">
+                            <h2 class="category-name"><%= category.category %></h2>
+                            <% if (category.essential) { %>
+                                <span class="essential-badge">Essential</span>
+                            <% } %>
+                        </div>
+
+                        <% if (category.items && category.items.length > 0) { %>
+                            <div class="equipment-items-grid">
+                                <% category.items.forEach(function(item) { %>
+                                    <div class="equipment-item-card">
+                                        <h3 class="item-name"><%= item.name %></h3>
+                                        <p class="item-description"><%= item.description %></p>
+
+                                        <% if (item.uses && item.uses.length > 0) { %>
+                                            <div class="item-uses">
+                                                <h4>Uses:</h4>
+                                                <ul class="uses-list">
+                                                    <% item.uses.forEach(function(use) { %>
+                                                        <li class="use-item"><%= use %></li>
+                                                    <% }); %>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+
+                                        <% if (item.features && item.features.length > 0) { %>
+                                            <div class="item-features">
+                                                <h4>Key Features:</h4>
+                                                <ul class="features-list">
+                                                    <% item.features.forEach(function(feature) { %>
+                                                        <li class="feature-item">✓ <%= feature %></li>
+                                                    <% }); %>
+                                                </ul>
+                                            </div>
+                                        <% } %>
+                                    </div>
+                                <% }); %>
+                            </div>
+                        <% } %>
+                    </article>
+                <% }); %>
+            </div>
+
+        <% } else { %>
+            <div class="no-content">
+                <h2>No content available</h2>
+                <p>We're working on adding more <%= detailType %> information. Please check back soon!</p>
+                <a href="/climbing" class="btn btn-primary">Back to Climbing Guide</a>
+            </div>
+        <% } %>
+
+        <div class="related-resources">
+            <h2>Related Resources</h2>
+            <div class="resource-links">
+                <a href="/climbing" class="resource-link">
+                    <span class="resource-icon">🧗</span>
+                    <span class="resource-text">Climbing Guide</span>
+                </a>
+                <% if (detailType === 'techniques') { %>
+                    <a href="/climbing/equipment" class="resource-link">
+                        <span class="resource-icon">🎒</span>
+                        <span class="resource-text">Equipment Guide</span>
+                    </a>
+                <% } else { %>
+                    <a href="/climbing/techniques" class="resource-link">
+                        <span class="resource-icon">🧗</span>
+                        <span class="resource-text">Climbing Techniques</span>
+                    </a>
+                <% } %>
+                <a href="/mountains" class="resource-link">
+                    <span class="resource-icon">🏔️</span>
+                    <span class="resource-text">Famous Mountains</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

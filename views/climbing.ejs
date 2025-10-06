@@ -1,0 +1,121 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Mountain Climbing Guide</h1>
+        <p class="page-description"><%= description %></p>
+    </div>
+</section>
+
+<section class="climbing-content">
+    <div class="container">
+        <div class="climbing-overview">
+            <div class="overview-grid">
+                <div class="overview-item">
+                    <div class="overview-icon">🧗</div>
+                    <h3>Master Techniques</h3>
+                    <p>Learn essential climbing techniques from basic rock climbing to advanced alpine methods.</p>
+                    <a href="/climbing/techniques" class="overview-link">View Techniques →</a>
+                </div>
+
+                <div class="overview-item">
+                    <div class="overview-icon">🎒</div>
+                    <h3>Essential Gear</h3>
+                    <p>Complete equipment guide covering everything from basic hardware to specialized gear.</p>
+                    <a href="/climbing/equipment" class="overview-link">View Equipment →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="climbing-sections">
+            <div class="section-row">
+                <div class="section-content">
+                    <h2>Climbing Techniques</h2>
+                    <% if (techniques && techniques.length > 0) { %>
+                        <div class="techniques-preview">
+                            <% techniques.slice(0, 2).forEach(function(technique) { %>
+                                <div class="technique-card">
+                                    <div class="technique-header">
+                                        <h3 class="technique-name"><%= technique.name %></h3>
+                                        <span class="difficulty-badge difficulty-<%= technique.difficulty.toLowerCase() %>">
+                                            <%= technique.difficulty %>
+                                        </span>
+                                    </div>
+                                    <p class="technique-description"><%= technique.description %></p>
+                                    <% if (technique.steps && technique.steps.length > 0) { %>
+                                        <div class="technique-steps-preview">
+                                            <strong>Key Steps:</strong>
+                                            <ul>
+                                                <% technique.steps.slice(0, 2).forEach(function(step) { %>
+                                                    <li><%= step %></li>
+                                                <% }); %>
+                                            </ul>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% }); %>
+                        </div>
+                        <div class="section-footer">
+                            <a href="/climbing/techniques" class="btn btn-primary">View All Techniques</a>
+                        </div>
+                    <% } else { %>
+                        <p>No techniques data available.</p>
+                    <% } %>
+                </div>
+            </div>
+
+            <div class="section-row">
+                <div class="section-content">
+                    <h2>Essential Equipment</h2>
+                    <% if (equipment && equipment.length > 0) { %>
+                        <div class="equipment-preview">
+                            <% equipment.slice(0, 2).forEach(function(category) { %>
+                                <div class="equipment-category">
+                                    <div class="category-header">
+                                        <h3 class="category-name"><%= category.category %></h3>
+                                        <% if (category.essential) { %>
+                                            <span class="essential-badge">Essential</span>
+                                        <% } %>
+                                    </div>
+                                    <% if (category.items && category.items.length > 0) { %>
+                                        <div class="equipment-items">
+                                            <% category.items.slice(0, 2).forEach(function(item) { %>
+                                                <div class="equipment-item">
+                                                    <h4 class="item-name"><%= item.name %></h4>
+                                                    <p class="item-description"><%= item.description %></p>
+                                                </div>
+                                            <% }); %>
+                                        </div>
+                                    <% } %>
+                                </div>
+                            <% }); %>
+                        </div>
+                        <div class="section-footer">
+                            <a href="/climbing/equipment" class="btn btn-primary">View All Equipment</a>
+                        </div>
+                    <% } else { %>
+                        <p>No equipment data available.</p>
+                    <% } %>
+                </div>
+            </div>
+        </div>
+
+        <div class="safety-notice">
+            <div class="safety-content">
+                <h2>⚠️ Safety First</h2>
+                <p>Mountain climbing is inherently dangerous. Always climb with experienced partners, check weather conditions, inform others of your plans, and never attempt climbs beyond your skill level. Proper training and equipment are essential for safe climbing.</p>
+                <div class="safety-tips">
+                    <ul>
+                        <li>✓ Always climb with a partner</li>
+                        <li>✓ Check weather conditions before climbing</li>
+                        <li>✓ Inform others of your climbing plans</li>
+                        <li>✓ Carry emergency equipment</li>
+                        <li>✓ Know your limits and turn back if conditions deteriorate</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

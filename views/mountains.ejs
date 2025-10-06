@@ -1,0 +1,86 @@
+<%- include('partials/header') %>
+
+<section class="page-header">
+    <div class="container">
+        <h1 class="page-title">Famous Mountains of the World</h1>
+        <p class="page-description"><%= description %></p>
+    </div>
+</section>
+
+<section class="mountains-content">
+    <div class="container">
+        <% if (mountains && mountains.length > 0) { %>
+            <div class="mountains-grid">
+                <% mountains.forEach(function(mountain) { %>
+                    <article class="mountain-card">
+                        <div class="mountain-image">
+                            <img src="<%= mountain.image %>" alt="<%= mountain.name %>" loading="lazy">
+                            <div class="mountain-difficulty">
+                                <span class="difficulty-badge difficulty-<%= mountain.difficulty.toLowerCase().replace(' ', '-') %>">
+                                    <%= mountain.difficulty %>
+                                </span>
+                            </div>
+                        </div>
+
+                        <div class="mountain-info">
+                            <h2 class="mountain-name">
+                                <a href="/mountains/<%= mountain.slug %>">
+                                    <%= mountain.name %>
+                                </a>
+                            </h2>
+
+                            <div class="mountain-stats">
+                                <div class="stat">
+                                    <span class="stat-label">Height:</span>
+                                    <span class="stat-value"><%= mountain.height %></span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">Location:</span>
+                                    <span class="stat-value"><%= mountain.location %></span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-label">First Ascent:</span>
+                                    <span class="stat-value"><%= mountain.firstAscent %></span>
+                                </div>
+                            </div>
+
+                            <p class="mountain-description">
+                                <%= mountain.description.substring(0, 150) %>...
+                            </p>
+
+                            <div class="mountain-actions">
+                                <a href="/mountains/<%= mountain.slug %>" class="btn btn-primary">
+                                    Learn More →
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                <% }); %>
+            </div>
+        <% } else { %>
+            <div class="no-content">
+                <h2>No mountains data available</h2>
+                <p>We're working on adding mountain information. Please check back soon!</p>
+            </div>
+        <% } %>
+
+        <div class="mountains-extra">
+            <div class="climbing-info">
+                <h2>Ready to Climb?</h2>
+                <p>Before attempting any mountain climb, make sure you have the proper training, equipment, and experience.</p>
+                <div class="info-links">
+                    <a href="/climbing/techniques" class="info-link">
+                        <span class="link-icon">🧗</span>
+                        <span class="link-text">Learn Climbing Techniques</span>
+                    </a>
+                    <a href="/climbing/equipment" class="info-link">
+                        <span class="link-icon">🎒</span>
+                        <span class="link-text">Essential Equipment Guide</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<%- include('partials/footer') %>

@@ -1,0 +1,43 @@
+<nav class="main-nav" id="mainNav">
+    <ul class="nav-list">
+        <li class="nav-item">
+            <a href="/" class="nav-link <%= page === 'home' ? 'active' : '' %>">
+                Home
+            </a>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="/mountains" class="nav-link <%= page === 'mountains' ? 'active' : '' %>">
+                Mountains
+                <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/mountains" class="dropdown-link">All Mountains</a>
+                </li>
+                <li>
+                    <a href="/mountains/everest" class="dropdown-link">Mount Everest</a>
+                </li>
+                <li>
+                    <a href="/mountains/k2" class="dropdown-link">K2</a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item dropdown">
+            <a href="/climbing" class="nav-link <%= page === 'climbing' ? 'active' : '' %>">
+                Climbing
+                <span class="dropdown-arrow">▼</span>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="/climbing" class="dropdown-link">Climbing Guide</a>
+                </li>
+                <li>
+                    <a href="/climbing/techniques" class="dropdown-link">Techniques</a>
+                </li>
+                <li>
+                    <a href="/climbing/equipment" class="dropdown-link">Equipment</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</nav>
