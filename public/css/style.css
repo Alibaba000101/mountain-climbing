@@ -1,36 +1,3 @@
-:root {
-    --primary-color: #2563eb;
-    --secondary-color: #64748b;
-    --accent-color: #f59e0b;
-    --success-color: #10b981;
-    --warning-color: #f59e0b;
-    --danger-color: #ef4444;
-
-    --text-primary: #1e293b;
-    --text-secondary: #64748b;
-    --text-light: #94a3b8;
-    --text-white: #ffffff;
-
-    --bg-primary: #ffffff;
-    --bg-secondary: #f8fafc;
-    --bg-dark: #1e293b;
-    --bg-overlay: rgba(0, 0, 0, 0.7);
-
-    --border-color: #e2e8f0;
-    --border-radius: 8px;
-    --border-radius-lg: 12px;
-
-    --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-    --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-
-    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    --font-mono: 'SF Mono', Monaco, Inconsolata, 'Roboto Mono', monospace;
-
-    --transition: all 0.2s ease-in-out;
-    --max-width: 1200px;
-}
-
 * {
     margin: 0;
     padding: 0;
@@ -42,41 +9,50 @@ html {
 }
 
 body {
-    font-family: var(--font-family);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
-    color: var(--text-primary);
-    background-color: var(--bg-primary);
+    color: #334155;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-weight: 600;
     line-height: 1.3;
     margin-bottom: 0.5em;
 }
 
-h1 { font-size: 2.5rem; }
-h2 { font-size: 2rem; }
-h3 { font-size: 1.5rem; }
-h4 { font-size: 1.25rem; }
-h5 { font-size: 1.125rem; }
-h6 { font-size: 1rem; }
+h1 {
+    font-size: 2.5rem;
+}
+
+h2 {
+    font-size: 2rem;
+}
+
+h3 {
+    font-size: 1.5rem;
+}
 
 p {
     margin-bottom: 1rem;
 }
 
 a {
-    color: var(--primary-color);
+    color: #2563eb;
     text-decoration: none;
-    transition: var(--transition);
+    transition: all 0.2s;
 }
 
 a:hover {
-    color: var(--accent-color);
+    color: #f59e0b;
 }
 
 .container {
-    max-width: var(--max-width);
+    max-width: 1200px;
     margin: 0 auto;
     padding: 0 1rem;
 }
@@ -86,12 +62,12 @@ a:hover {
 }
 
 .site-header {
-    background: var(--bg-primary);
-    border-bottom: 1px solid var(--border-color);
+    background: #fff;
+    border-bottom: 1px solid #e2e8f0;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: var(--shadow-sm);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
 }
 
 .header-content {
@@ -101,16 +77,12 @@ a:hover {
     padding: 1rem 0;
 }
 
-.logo a {
-    color: var(--text-primary);
+.logo a,
+.logo h1 {
+    color: #1e293b;
     font-size: 1.5rem;
     font-weight: 700;
-    text-decoration: none;
-}
-
-.logo h1 {
     margin: 0;
-    font-size: 1.5rem;
 }
 
 .main-nav {
@@ -121,57 +93,36 @@ a:hover {
     display: flex;
     list-style: none;
     gap: 2rem;
-    margin: 0;
-    padding: 0;
-}
-
-.nav-item {
-    position: relative;
 }
 
 .nav-link {
-    display: flex;
-    align-items: center;
-    gap: 0.25rem;
     padding: 0.5rem 1rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    border-radius: var(--border-radius);
-    transition: var(--transition);
+    color: #64748b;
+    border-radius: 8px;
+    transition: all 0.2s;
 }
 
 .nav-link:hover,
 .nav-link.active {
-    color: var(--primary-color);
-    background-color: var(--bg-secondary);
-}
-
-.dropdown-arrow {
-    font-size: 0.75rem;
-    transition: var(--transition);
-}
-
-.dropdown:hover .dropdown-arrow {
-    transform: rotate(180deg);
+    color: #2563eb;
+    background: #f8fafc;
 }
 
 .dropdown-menu {
     position: absolute;
     top: 100%;
-    left: 0;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-lg);
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
     opacity: 0;
     visibility: hidden;
     transform: translateY(-10px);
-    transition: var(--transition);
+    transition: all 0.2s;
     min-width: 180px;
     z-index: 200;
     list-style: none;
     padding: 0.5rem 0;
-    margin: 0;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -183,14 +134,12 @@ a:hover {
 .dropdown-link {
     display: block;
     padding: 0.5rem 1rem;
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: var(--transition);
+    color: #64748b;
 }
 
 .dropdown-link:hover {
-    color: var(--primary-color);
-    background-color: var(--bg-secondary);
+    color: #2563eb;
+    background: #f8fafc;
 }
 
 .mobile-menu-btn {
@@ -206,64 +155,55 @@ a:hover {
 .mobile-menu-btn span {
     width: 25px;
     height: 3px;
-    background-color: var(--text-primary);
-    transition: var(--transition);
+    background: #1e293b;
 }
+
+
 
 .btn {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
     gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
+    padding: 0.6rem 1.3rem;
     border: none;
-    border-radius: var(--border-radius);
-    font-size: 1rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
     font-weight: 500;
-    text-decoration: none;
     cursor: pointer;
-    transition: var(--transition);
-    line-height: 1;
+    transition: all 0.2s;
 }
 
 .btn-primary {
-    background-color: var(--primary-color);
-    color: var(--text-white);
+    background: #2563eb;
+    color: #fff;
 }
 
 .btn-primary:hover {
-    background-color: #1d4ed8;
-    transform: translateY(-1px);
+    background: #1d4ed8;
 }
 
 .btn-secondary {
-    background-color: var(--secondary-color);
-    color: var(--text-white);
-}
-
-.btn-secondary:hover {
-    background-color: #475569;
-    transform: translateY(-1px);
+    background: #64748b;
+    color: #fff;
 }
 
 .btn-outline {
-    background-color: transparent;
-    color: var(--primary-color);
-    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: #2563eb;
+    border: 2px solid #2563eb;
 }
 
 .btn-outline:hover {
-    background-color: var(--primary-color);
-    color: var(--text-white);
+    background: #2563eb;
+    color: #fff;
 }
 
 .hero {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    display: flex;
     align-items: center;
-    padding: 4rem 0;
-    background-image: linear-gradient(135deg, rgba(248, 250, 252, 0.95) 0%, rgba(241, 245, 249, 0.95) 100%), url('/images/mountain-hero.jpg');
+    padding: 8rem 0;
+    min-height: 70vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url('/images/mountain-hero.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -275,14 +215,16 @@ a:hover {
 .hero-title {
     font-size: 3rem;
     font-weight: 700;
-    color: var(--text-primary);
+    color: #fff;
     margin-bottom: 1rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-subtitle {
     font-size: 1.25rem;
-    color: var(--text-secondary);
+    color: #fff;
     margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-buttons {
@@ -291,53 +233,66 @@ a:hover {
     flex-wrap: wrap;
 }
 
-.hero-image {
-    position: relative;
-    overflow: hidden;
-    border-radius: var(--border-radius-lg);
-}
 
-.hero-img {
-    width: 100%;
-    height: 400px;
-    object-fit: cover;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
-}
-
-.features {
+.features,
+.mountains-content {
     padding: 4rem 0;
-    background-color: var(--bg-primary);
 }
 
-.section-title {
+.page-header {
+    padding: 3rem 0;
+    background: #f8fafc;
+    text-align: center;
+}
+
+.section-title,
+.page-title {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 700;
-    margin-bottom: 3rem;
-    color: var(--text-primary);
+    margin-bottom: 1rem;
 }
 
-.features-grid {
+.section-title {
+    margin-bottom: 3rem;
+}
+
+.page-description {
+    font-size: 1.25rem;
+    color: #64748b;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.features-grid,
+.mountains-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-.feature-card {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    text-align: center;
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
+.mountains-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    margin-bottom: 3rem;
 }
 
-.feature-card:hover {
+.feature-card,
+.mountain-card {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 12px;
+    transition: all 0.2s;
+}
+
+.feature-card {
+    padding: 2rem;
+    text-align: center;
+}
+
+.feature-card:hover,
+.mountain-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
-    border-color: var(--primary-color);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
 }
 
 .feature-icon {
@@ -345,160 +300,25 @@ a:hover {
     margin-bottom: 1rem;
 }
 
-.feature-card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
 .feature-card p {
-    color: var(--text-secondary);
+    color: #64748b;
     margin-bottom: 1.5rem;
 }
 
-.feature-link {
-    color: var(--primary-color);
-    font-weight: 500;
-    text-decoration: none;
-}
-
-.feature-link:hover {
-    color: var(--accent-color);
-}
-
-.stats {
-    padding: 4rem 0;
-    background: var(--bg-dark);
-    color: var(--text-white);
-}
-
-.stats .section-title {
-    color: var(--text-white);
-}
-
-.stats-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-}
-
-.stat-item {
-    text-align: center;
-}
-
-.stat-number {
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--accent-color);
-    display: block;
-}
-
-.stat-label {
-    font-size: 1.125rem;
-    color: var(--text-light);
-    margin-top: 0.5rem;
-}
-
-.call-to-action {
-    padding: 4rem 0;
-    background: linear-gradient(135deg, var(--primary-color) 0%, #1e40af 100%);
-    color: var(--text-white);
-}
-
-.cta-content {
-    text-align: center;
-}
-
-.cta-content h2 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.cta-content p {
-    font-size: 1.25rem;
-    margin-bottom: 2rem;
-    opacity: 0.9;
-}
-
-.cta-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-}
-
-.page-header {
-    padding: 3rem 0;
-    background: var(--bg-secondary);
-    text-align: center;
-}
-
-.page-title {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.page-description {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.page-safety-note {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    background: var(--warning-color);
-    color: var(--text-white);
-    padding: 0.75rem 1.5rem;
-    border-radius: var(--border-radius);
-    margin-top: 1rem;
-    font-weight: 500;
-}
-
-.mountains-content {
-    padding: 4rem 0;
-}
-
-.mountains-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
 
 .mountain-card {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
     overflow: hidden;
-    transition: var(--transition);
-    box-shadow: var(--shadow-sm);
-}
-
-.mountain-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-lg);
 }
 
 .mountain-image {
     position: relative;
     height: 250px;
-    overflow: hidden;
 }
 
 .mountain-image img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: var(--transition);
-}
-
-.mountain-card:hover .mountain-image img {
-    transform: scale(1.05);
 }
 
 .mountain-difficulty {
@@ -512,31 +332,47 @@ a:hover {
     border-radius: 20px;
     font-size: 0.875rem;
     font-weight: 500;
-    color: var(--text-white);
+    color: #fff;
 }
 
-.difficulty-extreme { background-color: var(--danger-color); }
-.difficulty-extreme-plus { background-color: #991b1b; }
-.difficulty-very-high { background-color: var(--warning-color); }
-.difficulty-high { background-color: var(--accent-color); }
-.difficulty-moderate { background-color: var(--success-color); }
-.difficulty-beginner { background-color: var(--primary-color); }
-.difficulty-advanced { background-color: var(--secondary-color); }
-.difficulty-expert { background-color: var(--danger-color); }
+.difficulty-extreme,
+.difficulty-expert {
+    background: #ef4444;
+}
+
+.difficulty-extreme-plus {
+    background: #991b1b;
+}
+
+.difficulty-very-high,
+.difficulty-high {
+    background: #f59e0b;
+}
+
+.difficulty-moderate {
+    background: #10b981;
+}
+
+.difficulty-beginner {
+    background: #2563eb;
+}
+
+.difficulty-advanced {
+    background: #64748b;
+}
 
 .mountain-info {
     padding: 1.5rem;
 }
 
 .mountain-name a {
-    color: var(--text-primary);
-    text-decoration: none;
+    color: #1e293b;
     font-size: 1.5rem;
     font-weight: 600;
 }
 
 .mountain-name a:hover {
-    color: var(--primary-color);
+    color: #2563eb;
 }
 
 .mountain-stats {
@@ -552,49 +388,40 @@ a:hover {
 
 .stat-label {
     font-weight: 500;
-    color: var(--text-secondary);
-}
-
-.stat-value {
-    color: var(--text-primary);
+    color: #64748b;
 }
 
 .mountain-description {
-    color: var(--text-secondary);
+    color: #64748b;
     margin-bottom: 1.5rem;
 }
+
 
 .mountain-hero {
     position: relative;
     height: 60vh;
     min-height: 400px;
-    overflow: hidden;
 }
 
 .mountain-hero-image {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
 }
 
 .mountain-hero-overlay {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    background: var(--bg-overlay);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
 }
 
 .mountain-hero-content {
-    color: var(--text-white);
+    color: #fff;
     text-align: center;
 }
 
@@ -602,12 +429,6 @@ a:hover {
     font-size: 4rem;
     font-weight: 700;
     margin-bottom: 1rem;
-}
-
-.mountain-hero-subtitle {
-    font-size: 1.5rem;
-    margin-bottom: 1rem;
-    opacity: 0.9;
 }
 
 .mountain-details {
@@ -620,365 +441,18 @@ a:hover {
     gap: 3rem;
 }
 
-.mountain-main {
-    space-y: 2rem;
-}
-
-.mountain-overview,
-.mountain-facts,
-.mountain-dangers {
-    margin-bottom: 2rem;
-}
-
-.facts-list,
-.dangers-list {
-    list-style: none;
-    margin: 1rem 0;
-}
-
-.fact-item,
-.danger-item {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-}
-
-.fact-icon {
-    color: var(--success-color);
-    font-weight: bold;
-}
-
-.danger-icon {
-    color: var(--danger-color);
-}
-
-.fact-text,
-.danger-text {
-    flex: 1;
-}
-
-/* Sidebar Styles */
-.mountain-sidebar {
-    space-y: 2rem;
-}
-
-.mountain-stats-card,
-.related-links {
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius-lg);
-    padding: 1.5rem;
-    margin-bottom: 1.5rem;
-}
-
-.mountain-stats-card h3,
-.related-links h3 {
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.stats-list {
-    space-y: 0.75rem;
-}
-
-.stat-row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0.5rem 0;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.stat-row:last-child {
-    border-bottom: none;
-}
-
-.resource-links {
-    display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-}
-
-.resource-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    background: var(--bg-primary);
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: var(--transition);
-}
-
-.resource-link:hover {
-    background: var(--primary-color);
-    color: var(--text-white);
-}
-
-.resource-icon {
-    font-size: 1.25rem;
-}
-
-.climbing-content {
-    padding: 4rem 0;
-}
-
-.overview-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
-}
-
-.overview-item {
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    text-align: center;
-    transition: var(--transition);
-}
-
-.overview-item:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-md);
-}
-
-.overview-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.overview-link {
-    color: var(--primary-color);
-    font-weight: 500;
-}
-
-.section-row {
-    margin-bottom: 3rem;
-    padding: 2rem;
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-}
-
-.techniques-preview,
-.equipment-preview {
-    display: grid;
-    gap: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.technique-card {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    background: var(--bg-secondary);
-}
-
-.technique-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.technique-name {
-    font-size: 1.25rem;
-    margin: 0;
-}
-
-.technique-steps-preview ul {
-    margin: 0.5rem 0;
-    padding-left: 1.5rem;
-}
-
-.equipment-category {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    background: var(--bg-secondary);
-}
-
-.category-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.essential-badge {
-    background: var(--success-color);
-    color: var(--text-white);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.equipment-items {
-    display: grid;
-    gap: 1rem;
-}
-
-.equipment-item {
-    padding: 1rem;
-    background: var(--bg-primary);
-    border-radius: var(--border-radius);
-}
-
-.item-name {
-    font-size: 1.125rem;
-    margin-bottom: 0.5rem;
-    color: var(--text-primary);
-}
-
-.section-footer {
-    text-align: center;
+.mountain-main>* {
     margin-top: 2rem;
 }
 
-.safety-notice {
-    background: linear-gradient(135deg, var(--warning-color) 0%, #f59e0b 100%);
-    color: var(--text-white);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    margin-top: 3rem;
+.mountain-main>*:first-child {
+    margin-top: 0;
 }
 
-.safety-content h2 {
-    margin-bottom: 1rem;
-}
-
-.safety-tips ul {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 0.5rem;
-    margin-top: 1rem;
-}
-
-.safety-tips li {
-    padding: 0.25rem 0;
-}
-
-.climbing-detail-content {
-    padding: 4rem 0;
-}
-
-.techniques-list {
-    display: grid;
-    gap: 3rem;
-}
-
-.technique-detail {
-    background: var(--bg-primary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-lg);
-    padding: 2rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.technique-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2rem;
-}
-
-.steps-list {
-    list-style: none;
-    counter-reset: step-counter;
-}
-
-.step-item {
-    counter-increment: step-counter;
-    position: relative;
-    padding-left: 2rem;
-    margin-bottom: 1rem;
-}
-
-.step-item::before {
-    content: counter(step-counter);
-    position: absolute;
-    left: 0;
-    top: 0;
-    background: var(--primary-color);
-    color: var(--text-white);
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 0.875rem;
-    font-weight: 500;
-}
-
-.safety-tips-list {
-    list-style: none;
-}
-
-.safety-tip {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.5rem;
-    margin-bottom: 0.75rem;
-    padding: 0.5rem;
-    background: #fef3c7;
-    border-radius: var(--border-radius);
-}
-
-.equipment-categories {
-    display: grid;
-    gap: 3rem;
-}
-
-.equipment-items-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    margin-top: 1.5rem;
-}
-
-.equipment-item-card {
-    background: var(--bg-secondary);
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius);
-    padding: 1.5rem;
-    transition: var(--transition);
-}
-
-.equipment-item-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-}
-
-.uses-list,
-.features-list {
-    list-style: none;
-    margin: 0.5rem 0;
-}
-
-.use-item,
-.feature-item {
-    padding: 0.25rem 0;
-    color: var(--text-secondary);
-}
-
-.feature-item {
-    color: var(--success-color);
-}
-
-.related-resources {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius-lg);
-}
 
 .site-footer {
-    background: var(--bg-dark);
-    color: var(--text-white);
+    background: #1e293b;
+    color: #fff;
     padding: 3rem 0 1rem;
 }
 
@@ -992,7 +466,6 @@ a:hover {
 .footer-section h3,
 .footer-section h4 {
     margin-bottom: 1rem;
-    color: var(--text-white);
 }
 
 .footer-links {
@@ -1000,94 +473,19 @@ a:hover {
 }
 
 .footer-links a {
-    color: var(--text-light);
-    text-decoration: none;
+    color: #94a3b8;
     line-height: 1.8;
-    transition: var(--transition);
 }
 
 .footer-links a:hover {
-    color: var(--accent-color);
+    color: #f59e0b;
 }
 
 .footer-bottom {
     border-top: 1px solid #374151;
     padding-top: 1rem;
     text-align: center;
-    color: var(--text-light);
-}
-
-.safety-note {
-    margin-top: 0.5rem;
-    font-size: 0.875rem;
-    color: var(--warning-color);
-}
-
-.error-page {
-    padding: 4rem 0;
-    text-align: center;
-}
-
-.error-content {
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-.error-icon {
-    font-size: 4rem;
-    margin-bottom: 1rem;
-}
-
-.error-title {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-}
-
-.error-description {
-    font-size: 1.25rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-}
-
-.suggestion-links {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 1rem;
-    margin: 2rem 0;
-}
-
-.suggestion-link {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    padding: 1rem;
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius);
-    text-decoration: none;
-    color: var(--text-primary);
-    transition: var(--transition);
-}
-
-.suggestion-link:hover {
-    background: var(--primary-color);
-    color: var(--text-white);
-    transform: translateY(-2px);
-}
-
-.error-quote {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: var(--bg-secondary);
-    border-radius: var(--border-radius-lg);
-    font-style: italic;
-}
-
-.error-quote cite {
-    display: block;
-    margin-top: 1rem;
-    font-style: normal;
-    color: var(--text-secondary);
+    color: #94a3b8;
 }
 
 
@@ -1101,8 +499,6 @@ a:hover {
     }
 
     .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
         padding: 2rem 0;
     }
 
@@ -1114,20 +510,12 @@ a:hover {
         justify-content: center;
     }
 
-    .features-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
+    .features-grid,
     .mountains-grid {
         grid-template-columns: 1fr;
     }
 
-    .mountain-content,
-    .technique-content {
+    .mountain-content {
         grid-template-columns: 1fr;
     }
 
@@ -1135,21 +523,8 @@ a:hover {
         font-size: 2.5rem;
     }
 
-    .mountain-hero-subtitle {
-        font-size: 1.25rem;
-    }
-
     .page-title {
         font-size: 2rem;
-    }
-
-    .cta-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .equipment-items-grid {
-        grid-template-columns: 1fr;
     }
 
     .footer-content {
